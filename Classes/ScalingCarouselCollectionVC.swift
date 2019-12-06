@@ -69,7 +69,7 @@ extension ScalingCarouselCollectionVC {
             
             
             if value {
-                self.hiddenCells = collection.visibleCells.map({ $0 as! CarouselScalingCVCell }).filter({ $0 != cell })
+                self.hiddenCells = collection.visibleCells.map({ $0 as! ScalingCarouselCVCell }).filter({ $0 != cell })
                 animator.addAnimations {
                     cell.expand(in: collection)
                     for c in self.hiddenCells {
