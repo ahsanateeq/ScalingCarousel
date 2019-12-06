@@ -15,7 +15,7 @@ protocol ExpandableCellProtocol {
     func collapse()
 }
 
-class CarouselScalingCVCell: UICollectionViewCell {
+open class CarouselScalingCVCell: UICollectionViewCell {
     
         @IBOutlet weak var mainScrollView: UIScrollView!
         var isUserDragging = false
@@ -29,11 +29,11 @@ class CarouselScalingCVCell: UICollectionViewCell {
         
         var collectionView: UICollectionView?
         
-        override func awakeFromNib() {
+    override open func awakeFromNib() {
             preSetUp()
         }
         
-        override func prepareForReuse() {
+    override open func prepareForReuse() {
             preSetUp()
         }
         
@@ -53,15 +53,15 @@ class CarouselScalingCVCell: UICollectionViewCell {
 
 
 extension CarouselScalingCVCell: UIScrollViewDelegate {
-        func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
             isUserDragging = true
         }
         
-        func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
             isUserDragging = false
         }
         
-        func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
             let newOffset = scrollView.contentOffset
 
             if newOffset.x != prevOffset.x || !isUserDragging {

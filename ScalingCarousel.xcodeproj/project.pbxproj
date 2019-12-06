@@ -34,6 +34,7 @@
 		599F80B7239A6E8A006B6AC8 = {
 			isa = PBXGroup;
 			children = (
+				599F80D5239A78AF006B6AC8 /* Classes */,
 				599F80C3239A6E8A006B6AC8 /* ScalingCarousel */,
 				599F80C2239A6E8A006B6AC8 /* Products */,
 			);
@@ -50,12 +51,19 @@
 		599F80C3239A6E8A006B6AC8 /* ScalingCarousel */ = {
 			isa = PBXGroup;
 			children = (
-				599F80D0239A6F44006B6AC8 /* CarouselScalingCollectionVC.swift */,
-				599F80D1239A6F44006B6AC8 /* CarouselScalingCVCell.swift */,
 				599F80C4239A6E8A006B6AC8 /* ScalingCarousel.h */,
 				599F80C5239A6E8A006B6AC8 /* Info.plist */,
 			);
 			path = ScalingCarousel;
+			sourceTree = "<group>";
+		};
+		599F80D5239A78AF006B6AC8 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				599F80D0239A6F44006B6AC8 /* CarouselScalingCollectionVC.swift */,
+				599F80D1239A6F44006B6AC8 /* CarouselScalingCVCell.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

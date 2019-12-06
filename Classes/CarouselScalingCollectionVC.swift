@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class CarouselScalingCollectionVC: UICollectionViewController {
+open class CarouselScalingCollectionVC: UICollectionViewController {
     @IBInspectable var reuseIdentifier: String = "cell"
     @IBInspectable var cellWidthScale: CGFloat = 0.9
     @IBInspectable var cellHeightScale: CGFloat = 0.6
@@ -21,7 +21,7 @@ class CarouselScalingCollectionVC: UICollectionViewController {
     var currentVisibleIndex = IndexPath(item: 0, section: 0)
     var isUserDragging = false
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
@@ -47,12 +47,12 @@ class CarouselScalingCollectionVC: UICollectionViewController {
     
 }
 
-extension CarouselScalingCollectionVC {
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension CarouselScalingCollectionVC {
+    override open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CarouselScalingCVCell
         cell.collectionView = collectionView
         setUpCellSize(collection: collectionView, cell: cell, indexPath: indexPath)
@@ -105,7 +105,7 @@ extension CarouselScalingCollectionVC {
 
 
 extension CarouselScalingCollectionVC {
-    override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    override open func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let newOffset = targetContentOffset.pointee
         
         if newOffset.x != prevOffset.x {
