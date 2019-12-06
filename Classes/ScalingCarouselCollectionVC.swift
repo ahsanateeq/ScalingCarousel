@@ -10,7 +10,7 @@ import UIKit
 
 
 
-open class CarouselScalingCollectionVC: UICollectionViewController {
+open class ScalingCarouselCollectionVC: UICollectionViewController {
     @IBInspectable var reuseIdentifier: String = "cell"
     @IBInspectable var cellWidthScale: CGFloat = 0.9
     @IBInspectable var cellHeightScale: CGFloat = 0.6

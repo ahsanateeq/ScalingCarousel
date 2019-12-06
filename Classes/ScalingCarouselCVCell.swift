@@ -15,7 +15,7 @@ protocol ExpandableCellProtocol {
     func collapse()
 }
 
-open class CarouselScalingCVCell: UICollectionViewCell {
+open class ScalingCarouselCVCell: UICollectionViewCell {
     
         @IBOutlet weak var mainScrollView: UIScrollView!
         var isUserDragging = false
