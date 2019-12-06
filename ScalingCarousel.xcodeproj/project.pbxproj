@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		599F80C6239A6E8A006B6AC8 /* ScalingCarousel.h in Headers */ = {isa = PBXBuildFile; fileRef = 599F80C4239A6E8A006B6AC8 /* ScalingCarousel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		599F80D2239A6F44006B6AC8 /* CarouselScalingCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599F80D0239A6F44006B6AC8 /* CarouselScalingCollectionVC.swift */; };
+		599F80D3239A6F44006B6AC8 /* CarouselScalingCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599F80D1239A6F44006B6AC8 /* CarouselScalingCVCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		599F80C1239A6E8A006B6AC8 /* ScalingCarousel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ScalingCarousel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		599F80C4239A6E8A006B6AC8 /* ScalingCarousel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScalingCarousel.h; sourceTree = "<group>"; };
 		599F80C5239A6E8A006B6AC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		599F80D0239A6F44006B6AC8 /* CarouselScalingCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselScalingCollectionVC.swift; sourceTree = "<group>"; };
+		599F80D1239A6F44006B6AC8 /* CarouselScalingCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselScalingCVCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +50,8 @@
 		599F80C3239A6E8A006B6AC8 /* ScalingCarousel */ = {
 			isa = PBXGroup;
 			children = (
+				599F80D0239A6F44006B6AC8 /* CarouselScalingCollectionVC.swift */,
+				599F80D1239A6F44006B6AC8 /* CarouselScalingCVCell.swift */,
 				599F80C4239A6E8A006B6AC8 /* ScalingCarousel.h */,
 				599F80C5239A6E8A006B6AC8 /* Info.plist */,
 			);
@@ -132,6 +138,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				599F80D3239A6F44006B6AC8 /* CarouselScalingCVCell.swift in Sources */,
+				599F80D2239A6F44006B6AC8 /* CarouselScalingCollectionVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
