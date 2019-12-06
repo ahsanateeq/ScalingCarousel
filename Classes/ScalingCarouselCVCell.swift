@@ -52,7 +52,7 @@ open class ScalingCarouselCVCell: UICollectionViewCell {
     }
 
 
-extension CarouselScalingCVCell: UIScrollViewDelegate {
+extension ScalingCarouselCVCell: UIScrollViewDelegate {
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
             isUserDragging = true
         }
@@ -83,7 +83,7 @@ extension CarouselScalingCVCell: UIScrollViewDelegate {
         }
     }
 
-extension CarouselScalingCVCell: ExpandableCellProtocol {
+extension ScalingCarouselCVCell: ExpandableCellProtocol {
         func hide(in collection: UICollectionView, selectedCellFrame cellFrame: CGRect) {
             self.initialFrame = self.frame
             

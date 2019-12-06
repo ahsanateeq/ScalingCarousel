@@ -15,7 +15,7 @@ open class ScalingCarouselCollectionVC: UICollectionViewController {
     @IBInspectable var cellWidthScale: CGFloat = 0.9
     @IBInspectable var cellHeightScale: CGFloat = 0.6
     
-    var hiddenCells = [CarouselScalingCVCell]()
+    var hiddenCells = [ScalingCarouselCVCell]()
     
     var prevOffset = CGPoint(x: 0, y: 0)
     var currentVisibleIndex = IndexPath(item: 0, section: 0)
@@ -47,20 +47,20 @@ open class ScalingCarouselCollectionVC: UICollectionViewController {
     
 }
 
-extension CarouselScalingCollectionVC {
+extension ScalingCarouselCollectionVC {
     override open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
     
     override open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CarouselScalingCVCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ScalingCarouselCVCell
         cell.collectionView = collectionView
         setUpCellSize(collection: collectionView, cell: cell, indexPath: indexPath)
         return cell
     }
     
     
-    private func setUpCellSize(collection: UICollectionView, cell: CarouselScalingCVCell, indexPath: IndexPath) {
+    private func setUpCellSize(collection: UICollectionView, cell: ScalingCarouselCVCell, indexPath: IndexPath) {
         cell.makeFullScreen = { value in
             self.view.isUserInteractionEnabled = false
             
@@ -104,7 +104,7 @@ extension CarouselScalingCollectionVC {
 }
 
 
-extension CarouselScalingCollectionVC {
+extension ScalingCarouselCollectionVC {
     override open func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let newOffset = targetContentOffset.pointee
         
