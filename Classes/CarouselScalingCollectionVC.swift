@@ -47,7 +47,7 @@ open class CarouselScalingCollectionVC: UICollectionViewController {
     
 }
 
-extension CarouselScalingCollectionVC {
+extension CarouselScalingCollectionVC {
     override open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
