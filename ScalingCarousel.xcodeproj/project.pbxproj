@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		599F80C6239A6E8A006B6AC8 /* ScalingCarousel.h in Headers */ = {isa = PBXBuildFile; fileRef = 599F80C4239A6E8A006B6AC8 /* ScalingCarousel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		599F80CE239A6E93006B6AC8 /* CarouselScalingCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599F80CC239A6E93006B6AC8 /* CarouselScalingCollectionVC.swift */; };
+		599F80CF239A6E93006B6AC8 /* CarouselScalingCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599F80CD239A6E93006B6AC8 /* CarouselScalingCVCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		599F80C1239A6E8A006B6AC8 /* ScalingCarousel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ScalingCarousel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		599F80C4239A6E8A006B6AC8 /* ScalingCarousel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScalingCarousel.h; sourceTree = "<group>"; };
 		599F80C5239A6E8A006B6AC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		599F80CC239A6E93006B6AC8 /* CarouselScalingCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselScalingCollectionVC.swift; sourceTree = "<group>"; };
+		599F80CD239A6E93006B6AC8 /* CarouselScalingCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselScalingCVCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +50,8 @@
 		599F80C3239A6E8A006B6AC8 /* ScalingCarousel */ = {
 			isa = PBXGroup;
 			children = (
+				599F80CC239A6E93006B6AC8 /* CarouselScalingCollectionVC.swift */,
+				599F80CD239A6E93006B6AC8 /* CarouselScalingCVCell.swift */,
 				599F80C4239A6E8A006B6AC8 /* ScalingCarousel.h */,
 				599F80C5239A6E8A006B6AC8 /* Info.plist */,
 			);
@@ -95,6 +101,7 @@
 				TargetAttributes = {
 					599F80C0239A6E8A006B6AC8 = {
 						CreatedOnToolsVersion = 11.2;
+						LastSwiftMigration = 1120;
 					};
 				};
 			};
@@ -131,6 +138,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				599F80CF239A6E93006B6AC8 /* CarouselScalingCVCell.swift in Sources */,
+				599F80CE239A6E93006B6AC8 /* CarouselScalingCollectionVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +269,7 @@
 		599F80CA239A6E8A006B6AC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2R8QQZQZWR;
@@ -276,6 +286,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.proficienttech.ScalingCarousel;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -284,6 +295,7 @@
 		599F80CB239A6E8A006B6AC8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2R8QQZQZWR;
