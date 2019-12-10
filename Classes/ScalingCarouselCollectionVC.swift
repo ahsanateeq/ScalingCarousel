@@ -123,7 +123,7 @@ extension ScalingCarouselCollectionVC {
             
             let index = (newOffset.x + scrollView.contentInset.left) / cellWidth
             let roundedIndex = round(index)
-            currentVisibleIndex = IndexPath(item: Int(roundedIndex), section: 0)
+            
             
             let newOffX = roundedIndex * cellWidth - scrollView.contentInset.left
             let newOffY = scrollView.contentInset.top
@@ -137,6 +137,16 @@ extension ScalingCarouselCollectionVC {
             return
         }
         
+    }
+    
+    open override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        let newOffset = scrollView.contentOffset
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        let cellWidth = layout.itemSize.width + layout.minimumLineSpacing
+        let index = (newOffset.x + scrollView.contentInset.left) / cellWidth
+        let roundedIndex = round(index)
+        currentVisibleIndex = IndexPath(item: Int(roundedIndex), section: 0)
     }
     
 }
