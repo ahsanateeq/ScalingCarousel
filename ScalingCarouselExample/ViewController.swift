@@ -25,6 +25,10 @@ class ViewController: ScalingCarouselCollectionVC {
 extension ViewController: ScalingCarouselProtocol {
     func cellDidShow(at indexPath: IndexPath) {
         print("Cell Show At indexPath: \(indexPath)")
+        
+        if indexPath.item == 2 {
+            super.scrollToIndex?(IndexPath(item: 4, section: 0))
+        }
     }
 }
 

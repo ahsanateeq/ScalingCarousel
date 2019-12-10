@@ -28,15 +28,25 @@ open class ScalingCarouselCollectionVC: UICollectionViewController {
     }
     var isUserDragging = false
     public var carouselDelegate: ScalingCarouselProtocol?
+    public var scrollToIndex: ((IndexPath) -> ())?
     
     override open func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+        
         setUpFlowLayout()
+        self.scrollToIndex = {
+            self.setUpScrollToIndex(index: $0)
+        }
     }
     
-    
+    private func setUpScrollToIndex(index: IndexPath) {
+//        self.view.isUserInteractionEnabled = false
+        self.collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+        self.carouselDelegate?.cellDidShow(at: index)
+        
+    }
     
     private func setUpFlowLayout() {
         let flow = collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
@@ -114,6 +124,7 @@ extension ScalingCarouselCollectionVC {
 
 extension ScalingCarouselCollectionVC {
     override open func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        scrollView.decelerationRate = .fast
         let newOffset = targetContentOffset.pointee
         
         if newOffset.x != prevOffset.x {
@@ -130,9 +141,11 @@ extension ScalingCarouselCollectionVC {
             
             let newOff = CGPoint(x: newOffX, y: newOffY)
             
-            targetContentOffset.pointee = newOff
             
-            prevOffset = newOffset
+            targetContentOffset.pointee = newOff
+           
+            
+            self.prevOffset = newOffset
             
             return
         }
@@ -146,7 +159,9 @@ extension ScalingCarouselCollectionVC {
         let cellWidth = layout.itemSize.width + layout.minimumLineSpacing
         let index = (newOffset.x + scrollView.contentInset.left) / cellWidth
         let roundedIndex = round(index)
+        
         currentVisibleIndex = IndexPath(item: Int(roundedIndex), section: 0)
+        
     }
     
 }
