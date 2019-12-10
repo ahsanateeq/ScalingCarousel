@@ -8,6 +8,9 @@
 
 import UIKit
 
+public protocol ScalingCarouselProtocol {
+    func cellDidShow(at indexPath: IndexPath)
+}
 
 
 open class ScalingCarouselCollectionVC: UICollectionViewController {
@@ -18,8 +21,13 @@ open class ScalingCarouselCollectionVC: UICollectionViewController {
     var hiddenCells = [ScalingCarouselCVCell]()
     
     var prevOffset = CGPoint(x: 0, y: 0)
-    var currentVisibleIndex = IndexPath(item: 0, section: 0)
+    var currentVisibleIndex = IndexPath(item: 0, section: 0) {
+        didSet {
+            self.carouselDelegate?.cellDidShow(at: currentVisibleIndex)
+        }
+    }
     var isUserDragging = false
+    public var carouselDelegate: ScalingCarouselProtocol?
     
     override open func viewDidLoad() {
         super.viewDidLoad()

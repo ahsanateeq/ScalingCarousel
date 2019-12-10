@@ -11,11 +11,20 @@ import ScalingCarousel
 
 class ViewController: ScalingCarouselCollectionVC {
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        super.carouselDelegate = self
     }
 
 
+}
+
+extension ViewController: ScalingCarouselProtocol {
+    func cellDidShow(at indexPath: IndexPath) {
+        print("Cell Show At indexPath: \(indexPath)")
+    }
 }
 
