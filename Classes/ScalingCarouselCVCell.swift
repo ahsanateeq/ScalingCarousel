@@ -58,8 +58,11 @@ extension ScalingCarouselCVCell: UIScrollViewDelegate {
         }
         
     public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-            isUserDragging = false
+            
         }
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        isUserDragging = false
+    }
         
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
             let newOffset = scrollView.contentOffset
@@ -75,6 +78,11 @@ extension ScalingCarouselCVCell: UIScrollViewDelegate {
                 topOffset = newOffset.y
                 
             } else if newOffset.y < 0 && isFullScreen {
+                
+                if newOffset.y > prevOffset.y {
+                    return
+                }
+                
                 isUserDragging = false
                 makeFullScreen?(false)
             }
