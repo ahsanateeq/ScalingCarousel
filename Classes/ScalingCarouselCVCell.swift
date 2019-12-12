@@ -18,6 +18,7 @@ protocol ExpandableCellProtocol {
 open class ScalingCarouselCVCell: UICollectionViewCell {
     
         @IBOutlet weak var mainScrollView: UIScrollView!
+        @IBOutlet weak var contentTopAnchor: NSLayoutConstraint!
         var isUserDragging = false
         var prevOffset = CGPoint(x: 0, y: 0)
         var isFullScreen = false
@@ -66,7 +67,13 @@ extension ScalingCarouselCVCell: UIScrollViewDelegate {
         
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
             let newOffset = scrollView.contentOffset
-
+//
+//        print("New Offset Y: \(newOffset.y)")
+//        print("ScrollView Frame Y: \(scrollView.frame.origin.y)")
+//        print("ScrollView Content Top Inset: \(scrollView.contentInset.top)")
+//        print("ScrollView Content Height: \(scrollView.contentSize.height)")
+//        print("ScrollView Content TopAnchor: \(contentTopAnchor.constant)")
+        
             if newOffset.x != prevOffset.x || !isUserDragging {
                 prevOffset = newOffset
                 return
@@ -77,12 +84,12 @@ extension ScalingCarouselCVCell: UIScrollViewDelegate {
                 makeFullScreen?(true)
                 topOffset = newOffset.y
                 
-            } else if newOffset.y < 0 && isFullScreen {
-                
+            } else if newOffset.y < (scrollView.frame.origin.y + contentTopAnchor.constant) && isFullScreen {
                 if newOffset.y > prevOffset.y {
                     return
                 }
-                
+                let newOff = CGPoint(x: newOffset.x, y: 0)
+                scrollView.contentOffset = newOff
                 isUserDragging = false
                 makeFullScreen?(false)
             }

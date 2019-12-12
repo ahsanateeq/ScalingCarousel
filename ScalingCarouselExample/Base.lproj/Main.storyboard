@@ -33,7 +33,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="380" height="553"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Hlq-pH-hzc">
-                                                    <rect key="frame" x="0.0" y="0.0" width="380" height="1008"/>
+                                                    <rect key="frame" x="0.0" y="100" width="380" height="1008"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1er-HK-MVy">
                                                             <rect key="frame" x="22.5" y="0.0" width="335" height="400"/>
@@ -106,13 +106,11 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Hlq-pH-hzc" firstAttribute="leading" secondItem="d0q-7r-xmK" secondAttribute="leading" id="JTJ-N9-l6x"/>
+                                                <constraint firstItem="Hlq-pH-hzc" firstAttribute="leading" secondItem="aUE-jb-kbG" secondAttribute="leading" id="JTJ-N9-l6x"/>
                                                 <constraint firstAttribute="trailing" secondItem="Hlq-pH-hzc" secondAttribute="trailing" id="khB-lb-eaH"/>
                                                 <constraint firstAttribute="bottom" secondItem="Hlq-pH-hzc" secondAttribute="bottom" id="pIQ-gm-cUT"/>
-                                                <constraint firstItem="Hlq-pH-hzc" firstAttribute="top" secondItem="aUE-jb-kbG" secondAttribute="top" id="wJ8-46-2Kl"/>
+                                                <constraint firstItem="Hlq-pH-hzc" firstAttribute="top" secondItem="aUE-jb-kbG" secondAttribute="top" constant="100" id="wJ8-46-2Kl"/>
                                             </constraints>
-                                            <viewLayoutGuide key="contentLayoutGuide" id="0WW-Wd-smV"/>
-                                            <viewLayoutGuide key="frameLayoutGuide" id="d0q-7r-xmK"/>
                                         </scrollView>
                                     </subviews>
                                     <constraints>
@@ -123,8 +121,10 @@
                                         <constraint firstItem="Hlq-pH-hzc" firstAttribute="width" secondItem="YYz-l4-CCy" secondAttribute="width" id="z9T-eP-pmp"/>
                                     </constraints>
                                 </collectionViewCellContentView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="customSize" width="380" height="553"/>
                                 <connections>
+                                    <outlet property="contentTopAnchor" destination="wJ8-46-2Kl" id="AzW-qy-MKY"/>
                                     <outlet property="mainScrollView" destination="aUE-jb-kbG" id="F16-zC-Ad2"/>
                                 </connections>
                             </collectionViewCell>
