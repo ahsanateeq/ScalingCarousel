@@ -15,8 +15,11 @@ public protocol ScalingCarouselProtocol {
 
 open class ScalingCarouselCollectionVC: UICollectionViewController {
     @IBInspectable var reuseIdentifier: String = "cell"
-    @IBInspectable var cellWidthScale: CGFloat = 0.9
-    @IBInspectable var cellHeightScale: CGFloat = 0.6
+    @IBInspectable var cellWidthScalePortrait: CGFloat = 0.9
+    @IBInspectable var cellHeightScalePortrait: CGFloat = 0.6
+    @IBInspectable var cellWidthScaleLandscape: CGFloat = 0.6
+    @IBInspectable var cellHeightScaleLandscape: CGFloat = 0.9
+    
     
     var hiddenCells = [ScalingCarouselCVCell]()
     
@@ -42,7 +45,6 @@ open class ScalingCarouselCollectionVC: UICollectionViewController {
     }
     
     private func setUpScrollToIndex(index: IndexPath) {
-//        self.view.isUserInteractionEnabled = false
         self.collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
         self.carouselDelegate?.cellDidShow(at: index)
         
@@ -53,6 +55,21 @@ open class ScalingCarouselCollectionVC: UICollectionViewController {
         
         let viewWidth = self.view.frame.width
         let viewHeight = self.view.frame.height
+        
+        
+        
+        
+        var orientation = UIApplication.shared.statusBarOrientation
+
+        if #available(iOS 13.0, *) {
+            if let interfaceOrientation = UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.windowScene?.interfaceOrientation {
+                orientation = interfaceOrientation
+            }
+        }
+        
+        let cellWidthScale = orientation == .landscapeLeft || orientation == .landscapeRight ? cellWidthScaleLandscape : cellWidthScalePortrait
+        let cellHeightScale = orientation == .landscapeLeft || orientation == .landscapeRight ? cellHeightScaleLandscape : cellHeightScalePortrait
+        
         let itemSize = CGSize(width: viewWidth * cellWidthScale, height: viewHeight * cellHeightScale)
         flow.itemSize = itemSize
         
@@ -61,6 +78,22 @@ open class ScalingCarouselCollectionVC: UICollectionViewController {
         collectionView.contentInset.left = xInsets
         collectionView.contentInset.right = xInsets
         collectionView.collectionViewLayout = flow
+        collectionView.collectionViewLayout.invalidateLayout()
+        self.setUpScrollToIndex(index: currentVisibleIndex)
+    }
+    
+    
+    open override func viewDidAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
+    }
+    
+    open override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
+    }
+    
+    @objc func rotated(){
+        setUpFlowLayout()
     }
     
 }
