@@ -23,6 +23,14 @@ class ViewController: ScalingCarouselCollectionVC {
 }
 
 extension ViewController: ScalingCarouselProtocol {
+    func cellPreFetch(at indexPaths: [IndexPath]) {
+        print("Cell Prefetch At: \(indexPaths)")
+    }
+    
+    func cellCancelPreFetch(at indexPaths: [IndexPath]) {
+        print("Cell Cancel Prefetch At: \(indexPaths)")
+    }
+    
     func cellDidShow(at indexPath: IndexPath) {
         print("Cell Show At indexPath: \(indexPath)")
         
@@ -30,5 +38,7 @@ extension ViewController: ScalingCarouselProtocol {
             super.scrollToIndex?(IndexPath(item: 4, section: 0))
         }
     }
+    
+    
 }
 

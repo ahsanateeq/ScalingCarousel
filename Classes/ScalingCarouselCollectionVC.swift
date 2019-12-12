@@ -10,6 +10,13 @@ import UIKit
 
 public protocol ScalingCarouselProtocol {
     func cellDidShow(at indexPath: IndexPath)
+    func cellPreFetch(at indexPaths: [IndexPath])
+    func cellCancelPreFetch(at indexPaths: [IndexPath])
+}
+
+extension ScalingCarouselProtocol {
+    func cellPreFetch(at indexPaths: [IndexPath]) {}
+    func cellCancelPreFetch(at indexPaths: [IndexPath]) {}
 }
 
 
@@ -37,6 +44,7 @@ open class ScalingCarouselCollectionVC: UICollectionViewController {
         super.viewDidLoad()
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+        self.collectionView.prefetchDataSource = self
         
         setUpFlowLayout()
         self.scrollToIndex = {
@@ -197,4 +205,14 @@ extension ScalingCarouselCollectionVC {
         
     }
     
+}
+
+extension ScalingCarouselCollectionVC: UICollectionViewDataSourcePrefetching {
+    public func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        self.carouselDelegate?.cellPreFetch(at: indexPaths)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+        self.carouselDelegate?.cellCancelPreFetch(at: indexPaths)
+    }
 }
