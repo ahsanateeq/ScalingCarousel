@@ -102,6 +102,7 @@ open class ScalingCarouselCollectionVC: UICollectionViewController {
     
     @objc func rotated(){
         setUpFlowLayout()
+        self.setUpScrollToIndex(index: currentVisibleIndex)
     }
     
 }
