@@ -77,11 +77,12 @@ extension ScalingCarouselCVCell: UIScrollViewDelegate {
         let offSetXNotEqual = newOffset.x != prevOffset.x
         let contentReachedTop = newOffset.y < (scrollView.frame.origin.y + contentTopAnchor.constant)
         let contentDragingUp = newOffset.y > prevOffset.y
+        let contentDraggingDown = newOffset.y < prevOffset.y
         
         if (offSetXNotEqual || !isUserDragging){
             prevOffset = newOffset
                 
-            if contentReachedTop && isFullScreen {
+            if contentReachedTop && contentDraggingDown && isFullScreen {
                 makeItemInitialSize(scrollView, newOffset)
             }
                 
