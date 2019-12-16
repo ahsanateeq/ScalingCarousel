@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "ScalingCarousel"
-  spec.version      = "1.3.2"
+  spec.version      = "1.3.3"
   spec.summary      = "This is a simple ScalingCarousel."
 
   spec.description  = <<-DESC
