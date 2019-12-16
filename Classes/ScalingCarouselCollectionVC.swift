@@ -98,7 +98,6 @@ open class ScalingCarouselCollectionVC: UICollectionViewController {
         collectionView.contentInset.right = xInsets
         collectionView.collectionViewLayout = flow
         collectionView.collectionViewLayout.invalidateLayout()
-//        self.setUpScrollToIndex(index: currentVisibleIndex)
     }
     
     
