@@ -9,20 +9,24 @@
 import UIKit
 import ScalingCarousel
 
-class ViewController: ScalingCarouselCollectionVC {
-
+class ViewController: ScalingCarouselCollectionVC, ScalingCarouselProtocol {
+    
+    var cellWidthScalePortrait: CGFloat = 0.9
+    var cellHeightScalePortrait: CGFloat = 0.6
+    var cellWidthScaleLandscape: CGFloat = 0.6
+    var cellHeightScaleLandscape: CGFloat = 0.9
+    var reuseIdentifier: String = "cell"
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         super.carouselDelegate = self
     }
 
 
 }
 
-extension ViewController: ScalingCarouselProtocol {
+extension ViewController  {
     func cellPreFetch(at indexPaths: [IndexPath]) {
         print("Cell Prefetch At: \(indexPaths)")
     }

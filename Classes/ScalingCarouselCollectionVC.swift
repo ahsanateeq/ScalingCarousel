@@ -9,24 +9,27 @@
 import UIKit
 
 public protocol ScalingCarouselProtocol {
+    var reuseIdentifier: String {get set}
+    var cellWidthScalePortrait: CGFloat {get set}
+    var cellHeightScalePortrait: CGFloat {get set}
+    var cellWidthScaleLandscape: CGFloat {get set}
+    var cellHeightScaleLandscape: CGFloat {get set}
+    
     func cellDidShow(at indexPath: IndexPath)
     func cellPreFetch(at indexPaths: [IndexPath])
     func cellCancelPreFetch(at indexPaths: [IndexPath])
 }
 
+
+
 extension ScalingCarouselProtocol {
+    func cellDidShow(at indexPath: IndexPath) {}
     func cellPreFetch(at indexPaths: [IndexPath]) {}
     func cellCancelPreFetch(at indexPaths: [IndexPath]) {}
 }
 
 
 open class ScalingCarouselCollectionVC: UICollectionViewController {
-    @IBInspectable var reuseIdentifier: String = "cell"
-    @IBInspectable var cellWidthScalePortrait: CGFloat = 0.9
-    @IBInspectable var cellHeightScalePortrait: CGFloat = 0.6
-    @IBInspectable var cellWidthScaleLandscape: CGFloat = 0.6
-    @IBInspectable var cellHeightScaleLandscape: CGFloat = 0.9
-    
     
     var hiddenCells = [ScalingCarouselCVCell]()
     
@@ -37,7 +40,13 @@ open class ScalingCarouselCollectionVC: UICollectionViewController {
         }
     }
     var isUserDragging = false
-    public var carouselDelegate: ScalingCarouselProtocol?
+    public var carouselDelegate: ScalingCarouselProtocol? {
+        didSet {
+            DispatchQueue.main.async {
+                self.setUpFlowLayout()
+            }
+        }
+    }
     public var scrollToIndex: ((IndexPath) -> ())?
     
     override open func viewDidLoad() {
@@ -75,8 +84,10 @@ open class ScalingCarouselCollectionVC: UICollectionViewController {
             }
         }
         
-        let cellWidthScale = orientation == .landscapeLeft || orientation == .landscapeRight ? cellWidthScaleLandscape : cellWidthScalePortrait
-        let cellHeightScale = orientation == .landscapeLeft || orientation == .landscapeRight ? cellHeightScaleLandscape : cellHeightScalePortrait
+        guard let child = self.carouselDelegate else { return }
+        
+        let cellWidthScale = orientation == .landscapeLeft || orientation == .landscapeRight ? child.cellWidthScaleLandscape : child.cellWidthScalePortrait
+        let cellHeightScale = orientation == .landscapeLeft || orientation == .landscapeRight ? child.cellHeightScaleLandscape : child.cellHeightScalePortrait
         
         let itemSize = CGSize(width: viewWidth * cellWidthScale, height: viewHeight * cellHeightScale)
         flow.itemSize = itemSize
@@ -113,7 +124,8 @@ extension ScalingCarouselCollectionVC {
     }
     
     override open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ScalingCarouselCVCell
+        guard let child = self.carouselDelegate else { return UICollectionViewCell() }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: child.reuseIdentifier, for: indexPath) as! ScalingCarouselCVCell
         cell.collectionView = collectionView
         setUpCellSize(collection: collectionView, cell: cell, indexPath: indexPath)
         return cell
