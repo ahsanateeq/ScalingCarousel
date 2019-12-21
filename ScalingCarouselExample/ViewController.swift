@@ -24,6 +24,11 @@ class ViewController: ScalingCarouselCollectionVC, ScalingCarouselProtocol {
     }
 
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        super.scrollToIndex?(IndexPath(item: 0, section: 0))
+    }
 }
 
 extension ViewController  {

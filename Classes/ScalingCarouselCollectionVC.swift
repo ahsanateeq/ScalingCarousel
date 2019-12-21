@@ -112,6 +112,7 @@ open class ScalingCarouselCollectionVC: UICollectionViewController {
     
     
     open override func viewDidAppear(_ animated: Bool) {
+        self.enableScrollForContent(at: currentVisibleIndex)
         NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
