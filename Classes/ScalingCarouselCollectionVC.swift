@@ -63,15 +63,7 @@ open class ScalingCarouselCollectionVC: UICollectionViewController {
     }
     
     private func setUpScrollToIndex(index: IndexPath) {
-//        self.enableScrollForContent(at: index)
-        DispatchQueue.main.async {
-            self.collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
-            self.currentVisibleIndex = index
-        }
-        
-        
-//        self.carouselDelegate?.cellDidShow(at: index)
-        
+        self.collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
     }
     
     private func enableScrollForContent(at index: IndexPath) {
@@ -145,7 +137,7 @@ extension ScalingCarouselCollectionVC {
         return cell
     }
     
-    
+   
     private func setUpCellSize(collection: UICollectionView, cell: ScalingCarouselCVCell, indexPath: IndexPath) {
         cell.makeFullScreen = { value in
             self.view.isUserInteractionEnabled = false
@@ -227,17 +219,21 @@ extension ScalingCarouselCollectionVC {
     }
     
     open override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        
+        setCurrentVisibleCellIndex(scrollView)
+    }
+    
+    open override func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        setCurrentVisibleCellIndex(scrollView)
+    }
+    
+    private func setCurrentVisibleCellIndex(_ scrollView: UIScrollView) {
         let newOffset = scrollView.contentOffset
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         let cellWidth = layout.itemSize.width + layout.minimumLineSpacing
         let index = (newOffset.x + scrollView.contentInset.left) / cellWidth
         let roundedIndex = round(index)
-        
         currentVisibleIndex = IndexPath(item: Int(roundedIndex), section: 0)
-        
     }
-    
 }
 
 extension ScalingCarouselCollectionVC: UICollectionViewDataSourcePrefetching {

@@ -27,7 +27,9 @@ class ViewController: ScalingCarouselCollectionVC, ScalingCarouselProtocol {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        super.scrollToIndex?(IndexPath(item: 0, section: 0))
+//        super.scrollToIndex?(IndexPath(item: 0, section: 0))
+        
+        super.scrollToIndex?(IndexPath(item: 3, section: 0))
     }
 }
 
@@ -43,9 +45,7 @@ extension ViewController  {
     func cellDidShow(at indexPath: IndexPath) {
         print("Cell Show At indexPath: \(indexPath)")
         
-        if indexPath.item == 2 {
-            super.scrollToIndex?(IndexPath(item: 4, section: 0))
-        }
+        
     }
     
     
