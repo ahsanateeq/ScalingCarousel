@@ -33,13 +33,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="380" height="553"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Hlq-pH-hzc">
-                                                    <rect key="frame" x="0.0" y="10" width="380" height="1028"/>
+                                                    <rect key="frame" x="0.0" y="10" width="380" height="606"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1er-HK-MVy">
-                                                            <rect key="frame" x="0.0" y="0.0" width="380" height="420"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="380" height="606"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="Nd2-4S-T2X">
-                                                                    <rect key="frame" x="-20" y="0.0" width="400" height="440"/>
+                                                                    <rect key="frame" x="-20" y="0.0" width="400" height="626"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GET STARTED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pI3-To-JuP" userLabel="Motivation Label">
                                                                     <rect key="frame" x="20" y="15" width="110.5" height="20.5"/>
@@ -58,7 +58,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The most descriptive text ever" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDE-1I-Cch" userLabel="Description Label">
-                                                                    <rect key="frame" x="20" y="362" width="208" height="18"/>
+                                                                    <rect key="frame" x="20" y="548" width="208" height="18"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -78,8 +78,8 @@
                                                                 <constraint firstItem="zDE-1I-Cch" firstAttribute="leading" secondItem="1er-HK-MVy" secondAttribute="leading" constant="20" id="npZ-gv-hcc"/>
                                                             </constraints>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKg-jp-Xp6">
-                                                            <rect key="frame" x="0.5" y="460" width="379" height="264"/>
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKg-jp-Xp6">
+                                                            <rect key="frame" x="-1479" y="0.0" width="3338" height="264"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="264" id="0d9-rC-mPM"/>
                                                             </constraints>
@@ -88,8 +88,8 @@
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MpR-oH-feV">
-                                                            <rect key="frame" x="0.5" y="764" width="379" height="264"/>
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MpR-oH-feV">
+                                                            <rect key="frame" x="-1479" y="0.0" width="3338" height="264"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="264" id="CCL-RK-dzL"/>
                                                             </constraints>

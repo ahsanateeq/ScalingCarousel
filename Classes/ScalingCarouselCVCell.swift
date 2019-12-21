@@ -17,18 +17,37 @@ protocol ExpandableCellProtocol {
 
 open class ScalingCarouselCVCell: UICollectionViewCell {
     
-        @IBOutlet weak var mainScrollView: UIScrollView!
-        @IBOutlet weak var contentTopAnchor: NSLayoutConstraint!
-        var isUserDragging = false
-        var prevOffset = CGPoint(x: 0, y: 0)
-        var isFullScreen = false
-        
-        var makeFullScreen: ((Bool) -> ())?
-        var initialFrame: CGRect?
-        var initialCornerRadius: CGFloat?
-        var topOffset: CGFloat?
-        
-        var collectionView: UICollectionView?
+    @IBOutlet weak var mainScrollView: UIScrollView!
+    @IBOutlet weak var contentTopAnchor: NSLayoutConstraint!
+    var isUserDragging = false
+    var prevOffset = CGPoint(x: 0, y: 0)
+    var isFullScreen = false {
+        didSet {
+            self.setScrollContentSize()
+        }
+    }
+    
+    
+    var animationCompleted: Bool = true
+    
+    var makeFullScreen: ((Bool) -> ())?
+    var initialFrame: CGRect?
+    var initialCornerRadius: CGFloat?
+    var topOffset: CGFloat?
+    
+    var collectionView: UICollectionView?
+    
+    func setScrollContentSize() {
+//        print("Scroll View Height: \(mainScrollView.frame.height)")
+//        print("Content Height: \(mainScrollView.contentSize.height)")
+        if mainScrollView.contentSize.height < mainScrollView.frame.height {
+            UIView.animate(withDuration: 0.1) {
+                self.mainScrollView.contentSize.height = self.mainScrollView.frame.height + 1
+            }
+            
+        }
+//        mainScrollView.isScrollEnabled = true
+    }
         
     override open func awakeFromNib() {
             preSetUp()
@@ -66,7 +85,8 @@ extension ScalingCarouselCVCell: UIScrollViewDelegate {
     }
         
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-            let newOffset = scrollView.contentOffset
+        let newOffset = scrollView.contentOffset
+//        print(newOffset)
 //
 //        print("New Offset Y: \(newOffset.y)")
 //        print("ScrollView Frame Y: \(scrollView.frame.origin.y)")
@@ -76,22 +96,22 @@ extension ScalingCarouselCVCell: UIScrollViewDelegate {
         
         let offSetXNotEqual = newOffset.x != prevOffset.x
         let contentReachedTop = newOffset.y < (scrollView.frame.origin.y + contentTopAnchor.constant)
-        let contentDragingUp = newOffset.y > prevOffset.y
-        let contentDraggingDown = newOffset.y < prevOffset.y
+        let contentScrollingUp = newOffset.y > prevOffset.y
+        let contentScrollingDown = newOffset.y < prevOffset.y
         
         if (offSetXNotEqual || !isUserDragging){
             prevOffset = newOffset
                 
-            if contentReachedTop && contentDraggingDown && isFullScreen {
+            if contentReachedTop && contentScrollingDown && isFullScreen && animationCompleted {
                 makeItemInitialSize(scrollView, newOffset)
             }
                 
                 return
             }
             
-            if contentDragingUp && !isFullScreen {
+            if contentScrollingUp && !isFullScreen && animationCompleted {
                 makeItemFullSize(newOffset)
-            } else if contentReachedTop && isFullScreen {
+            } else if contentReachedTop && isFullScreen && animationCompleted  {
                 if newOffset.y > prevOffset.y {
                     return
                 }
@@ -102,12 +122,14 @@ extension ScalingCarouselCVCell: UIScrollViewDelegate {
         }
     
     private func makeItemFullSize(_ newOffset: CGPoint) {
+        animationCompleted = false
         isUserDragging = false
         makeFullScreen?(true)
         topOffset = newOffset.y
     }
     
     private func makeItemInitialSize(_ scrollView: UIScrollView, _ newOffset: CGPoint) {
+        animationCompleted = false
         isUserDragging = false
         let newOff = CGPoint(x: newOffset.x, y: 0)
         scrollView.contentOffset = newOff

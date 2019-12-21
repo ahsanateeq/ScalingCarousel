@@ -36,6 +36,7 @@ open class ScalingCarouselCollectionVC: UICollectionViewController {
     var prevOffset = CGPoint(x: 0, y: 0)
     var currentVisibleIndex = IndexPath(item: 0, section: 0) {
         didSet {
+            self.enableScrollForContent(at: currentVisibleIndex)
             self.carouselDelegate?.cellDidShow(at: currentVisibleIndex)
         }
     }
@@ -63,8 +64,17 @@ open class ScalingCarouselCollectionVC: UICollectionViewController {
     
     private func setUpScrollToIndex(index: IndexPath) {
         self.collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+        self.enableScrollForContent(at: index)
+        self.currentVisibleIndex = index
         self.carouselDelegate?.cellDidShow(at: index)
         
+    }
+    
+    private func enableScrollForContent(at index: IndexPath) {
+        guard let cell = self.collectionView.cellForItem(at: index) as? ScalingCarouselCVCell else {
+            return
+        }
+        cell.setScrollContentSize()
     }
     
     private func setUpFlowLayout() {
@@ -140,6 +150,11 @@ extension ScalingCarouselCollectionVC {
             
             
             if value {
+                
+                guard let cellIndexPath = self.collectionView.indexPath(for: cell), cellIndexPath == self.currentVisibleIndex else {
+                    self.view.isUserInteractionEnabled = true
+                    return
+                }
                 self.hiddenCells = collection.visibleCells.map({ $0 as! ScalingCarouselCVCell }).filter({ $0 != cell })
                 animator.addAnimations {
                     cell.expand(in: collection)
@@ -167,6 +182,7 @@ extension ScalingCarouselCollectionVC {
             }
             animator.addCompletion { _ in
                 self.view.isUserInteractionEnabled = true
+                cell.animationCompleted = true
             }
             
             animator.startAnimation()
