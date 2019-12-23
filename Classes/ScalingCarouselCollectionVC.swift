@@ -52,6 +52,7 @@ open class ScalingCarouselCollectionVC: UICollectionViewController {
     
     override open func viewDidLoad() {
         super.viewDidLoad()
+        
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.prefetchDataSource = self
