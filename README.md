@@ -40,3 +40,5 @@ Scaling Carousel is easy usable pod to make your collection view have carousel e
 Using Cocoapods:
 
 use ` pod 'ScalingCarousel', :git => 'https://github.com/ahsanateeq/ScalingCarousel.git' `
+
+------------
