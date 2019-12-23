@@ -35,7 +35,7 @@ Scaling Carousel is easy usable pod to make your collection view have carousel e
 
 ------------
 
-## Installation:
+### Installation:
 
 Using Cocoapods:
 
