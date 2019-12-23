@@ -2,9 +2,9 @@
 
 Scaling Carousel is easy usable pod to make your collection view have carousel effect as well scaling to full screen as well.
 
+------------
 
-
-# Usage: 
+### Usage: 
 
 1. Drag UICollectionViewController in storyboard, create a swift file for it and make it a subsclass of ` ScalingCarouselCollectionVC `, also conform to protocol ` ScalingCarouselProtocol `.
 
@@ -33,8 +33,9 @@ Scaling Carousel is easy usable pod to make your collection view have carousel e
 
 6. Optional: You can use ` super.scrollToIndex?(IndexPath) ` to scroll UICollectionView to a specific IndexPath.
 
+------------
 
-# Installation:
+## Installation:
 
 Using Cocoapods:
 
