@@ -45,8 +45,8 @@
             filePath = "Classes/ScalingCarouselCollectionVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "enableScrollForContent(at:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -61,8 +61,8 @@
             filePath = "Classes/ScalingCarouselCollectionVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "enableScrollForContent(at:)"
             landmarkType = "7">
          </BreakpointContent>
