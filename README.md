@@ -20,7 +20,7 @@ Scaling Carousel is easy usable pod to make your collection view have carousel e
     </br> c: ` cellHeightScalePortrait `: (CGFloat 0 to 1) UICollectionViewCell height scale with respect to UIViewControllers View property for Portrait orientation.
     </br> d: ` cellWidthScaleLandscape `: (CGFloat 0 to 1) UICollectionViewCell width scale with respect to UIViewControllers View property for Landscape orientation.
     </br> e: ` cellHeightScaleLandscape `: (CGFloat 0 to 1) UICollectionViewCell height scale with respect to UIViewControllers View property for Landscape orientation.
-   </br></br>Also you can use following optional methds from " ScalingCarouselProtocol "
+   </br></br>Also you can use following optional methds from ` ScalingCarouselProtocol `
     </br> a:` cellDidShow(at indexPath: IndexPath) `: Calls when a specific cell shown to user.
     </br> b:` cellPreFetch(at indexPaths: [IndexPath]) `: From prefetchDataSource delegate, called for prefething of cell.
     </br> c:` cellCancelPreFetch(at indexPaths: [IndexPath]) `: From prefetchDataSource delegate, called for canceling of prefetch.
