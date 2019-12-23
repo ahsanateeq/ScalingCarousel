@@ -8,11 +8,13 @@ Scaling Carousel is easy usable pod to make your collection view have carousel e
 
 1. Drag UICollectionViewController in storyboard, create a swift file for it and make it a subsclass of ` ScalingCarouselCollectionVC `, also conform to protocol ` ScalingCarouselProtocol `.
 
-2. Create a UICollectionViewCell class and make it a subsclass of ` ScalingCarouselCVCell `.
+2. Create a UICollectionViewCell class and make it a subsclass of ` ScalingCarouselCVCell ` and connect folowing @IBOutlets
+</br> a: ` mainScrollView `: (UIScrollView) the main scroll view in collection view cell class responsible for making cell full size and initial size.
+</br> b: ` contentTopAnchor ` : (NSLayoutConstraint) the top anchor of view that is direct child of ` mainScrollView `.
 
 3. Set ` ScalingCarouselProtocol ` delegate to self, in viewDidLoad method after ` super.viewDidLoad() ` call ` super.carouselDelegate = self `.
 
-3. While conforming to " ScalingCarouselProtocol " provide value of following: 
+3. While conforming to ` ScalingCarouselProtocol ` provide value of following: 
     </br> a: ` reuseIdentifier `: (String) the reuse identifier of UICollectionViewCell
     </br> b: ` cellWidthScalePortrait `: (CGFloat 0 to 1) UICollectionViewCell width scale with respect to UIViewControllers View property for Portrait orientation.
     </br> c: ` cellHeightScalePortrait `: (CGFloat 0 to 1) UICollectionViewCell height scale with respect to UIViewControllers View property for Portrait orientation.
