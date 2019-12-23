@@ -77,16 +77,7 @@ extension ScalingCarouselCVCell: UIScrollViewDelegate {
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
             isUserDragging = true
         }
-        
-    public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-//            let offset = scrollView.contentOffset
-//            print("New Offset Y: \(offset.y)")
-//            print("Prev Offset Y: \(prevOffset.y)")
-        }
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        
-        
-//        print("Did end drag up: \(offset.y > prevOffset.y)")
         isUserDragging = false
     }
     
@@ -100,22 +91,11 @@ extension ScalingCarouselCVCell: UIScrollViewDelegate {
         
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let newOffset = scrollView.contentOffset
-       
-        
-        print("IsScrollingUp: \(scrollingUp)")
-//        print(newOffset)
-//
-//        print("New Offset Y: \(newOffset.y)")
-//        print("ScrollView Frame Y: \(scrollView.frame.origin.y)")
-//        print("ScrollView Content Top Inset: \(scrollView.contentInset.top)")
-//        print("ScrollView Content Height: \(scrollView.contentSize.height)")
-//        print("ScrollView Content TopAnchor: \(contentTopAnchor.constant)")
         
         let offSetXNotEqual = newOffset.x != prevOffset.x
         let contentReachedTop = newOffset.y < (scrollView.frame.origin.y + contentTopAnchor.constant)
         let contentScrollingUp = newOffset.y > prevOffset.y
         let contentScrollingDown = newOffset.y < prevOffset.y
-//        scrollingUp = newOffset.y > prevOffset.y
         
         if contentScrollingDown && scrollingUp && isUserDragging {
             scrollingUp = false
