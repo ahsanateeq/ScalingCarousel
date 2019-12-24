@@ -72,24 +72,31 @@ open class ScalingCarouselCVCell: UICollectionViewCell {
 
 extension ScalingCarouselCVCell: UIScrollViewDelegate {
     
-    
+    private func shouldPerformObserve(scrollView: UIScrollView) -> Bool {
+        return scrollView == mainScrollView
+    }
     
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-            isUserDragging = true
-        }
+        guard shouldPerformObserve(scrollView: scrollView) else { return }
+        isUserDragging = true
+    }
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        guard shouldPerformObserve(scrollView: scrollView) else { return }
         isUserDragging = false
     }
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        guard shouldPerformObserve(scrollView: scrollView) else { return }
         scrollingUp = false
     }
     
     public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        guard shouldPerformObserve(scrollView: scrollView) else { return }
         scrollingUp = false
     }
         
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard shouldPerformObserve(scrollView: scrollView) else { return }
         let newOffset = scrollView.contentOffset
         
         let offSetXNotEqual = newOffset.x != prevOffset.x
