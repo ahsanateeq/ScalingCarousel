@@ -10,6 +10,7 @@
 		599F80C6239A6E8A006B6AC8 /* ScalingCarousel.h in Headers */ = {isa = PBXBuildFile; fileRef = 599F80C4239A6E8A006B6AC8 /* ScalingCarousel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		599F80D2239A6F44006B6AC8 /* ScalingCarouselCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599F80D0239A6F44006B6AC8 /* ScalingCarouselCollectionVC.swift */; };
 		599F80D3239A6F44006B6AC8 /* ScalingCarouselCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599F80D1239A6F44006B6AC8 /* ScalingCarouselCVCell.swift */; };
+		9A25778423B4811800594218 /* CollectionItemsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A25778323B4811800594218 /* CollectionItemsCollectionViewController.swift */; };
 		9AA8FEB5239F84D800F9776C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA8FEB4239F84D800F9776C /* AppDelegate.swift */; };
 		9AA8FEB7239F84D800F9776C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA8FEB6239F84D800F9776C /* SceneDelegate.swift */; };
 		9AA8FEB9239F84D800F9776C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA8FEB8239F84D800F9776C /* ViewController.swift */; };
@@ -51,6 +52,7 @@
 		599F80C5239A6E8A006B6AC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		599F80D0239A6F44006B6AC8 /* ScalingCarouselCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingCarouselCollectionVC.swift; sourceTree = "<group>"; };
 		599F80D1239A6F44006B6AC8 /* ScalingCarouselCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingCarouselCVCell.swift; sourceTree = "<group>"; };
+		9A25778323B4811800594218 /* CollectionItemsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionItemsCollectionViewController.swift; sourceTree = "<group>"; };
 		9AA8FEB2239F84D800F9776C /* ScalingCarouselExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScalingCarouselExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AA8FEB4239F84D800F9776C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AA8FEB6239F84D800F9776C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			children = (
 				9AA8FEB4239F84D800F9776C /* AppDelegate.swift */,
 				9AA8FEB6239F84D800F9776C /* SceneDelegate.swift */,
+				9A25778323B4811800594218 /* CollectionItemsCollectionViewController.swift */,
 				9AA8FEB8239F84D800F9776C /* ViewController.swift */,
 				9AA8FEBA239F84D800F9776C /* Main.storyboard */,
 				9AA8FEBD239F84DC00F9776C /* Assets.xcassets */,
@@ -264,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A25778423B4811800594218 /* CollectionItemsCollectionViewController.swift in Sources */,
 				9AA8FEB9239F84D800F9776C /* ViewController.swift in Sources */,
 				9AA8FEB5239F84D800F9776C /* AppDelegate.swift in Sources */,
 				9AA8FEB7239F84D800F9776C /* SceneDelegate.swift in Sources */,

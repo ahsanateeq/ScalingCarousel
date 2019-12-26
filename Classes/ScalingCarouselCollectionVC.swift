@@ -48,7 +48,7 @@ open class ScalingCarouselCollectionVC: UICollectionViewController {
             }
         }
     }
-    public var scrollToIndex: ((IndexPath) -> ())?
+    public var scrollToIndex: ((IndexPath, Bool) -> ())!
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -59,12 +59,12 @@ open class ScalingCarouselCollectionVC: UICollectionViewController {
         
         setUpFlowLayout()
         self.scrollToIndex = {
-            self.setUpScrollToIndex(index: $0)
+            self.setUpScrollToIndex(index: $0, animated: $1)
         }
     }
     
-    private func setUpScrollToIndex(index: IndexPath) {
-        self.collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+    private func setUpScrollToIndex(index: IndexPath, animated: Bool) {
+        self.collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: animated)
     }
     
     private func enableScrollForContent(at index: IndexPath) {
@@ -120,7 +120,7 @@ open class ScalingCarouselCollectionVC: UICollectionViewController {
     
     @objc func rotated(){
         setUpFlowLayout()
-        self.setUpScrollToIndex(index: currentVisibleIndex)
+        self.setUpScrollToIndex(index: currentVisibleIndex, animated: false)
     }
     
 }

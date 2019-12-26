@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rIN-33-2jZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nqa-tc-CVD">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
@@ -7,10 +7,62 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Collection Items Collection View Controller-->
+        <scene sceneID="62e-r5-7ZJ">
+            <objects>
+                <collectionViewController id="Nqa-tc-CVD" customClass="CollectionItemsCollectionViewController" customModule="ScalingCarouselExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="f1i-78-k1n">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oAk-fM-V76">
+                            <size key="itemSize" width="208" height="210"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="reusableCell" id="sSX-d6-fQf" customClass="CollectionItemCollectionViewCell" customModule="ScalingCarouselExample" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="208" height="210"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="h8T-3n-Fag">
+                                    <rect key="frame" x="0.0" y="0.0" width="208" height="210"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKJ-K5-6MW">
+                                            <rect key="frame" x="0.0" y="0.0" width="208" height="210"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="kKJ-K5-6MW" secondAttribute="bottom" id="NRs-cu-HNt"/>
+                                        <constraint firstItem="kKJ-K5-6MW" firstAttribute="leading" secondItem="h8T-3n-Fag" secondAttribute="leading" id="bQR-ZE-3u7"/>
+                                        <constraint firstItem="kKJ-K5-6MW" firstAttribute="top" secondItem="h8T-3n-Fag" secondAttribute="top" id="ku6-w3-Ktu"/>
+                                        <constraint firstAttribute="trailing" secondItem="kKJ-K5-6MW" secondAttribute="trailing" id="mtK-Aw-ZWm"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="208" height="210"/>
+                                <connections>
+                                    <outlet property="label" destination="kKJ-K5-6MW" id="xWn-vi-cCm"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="Nqa-tc-CVD" id="4j1-sa-DNY"/>
+                            <outlet property="delegate" destination="Nqa-tc-CVD" id="Qmi-Mk-DVo"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Cz-So-7uF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1381.1594202898552" y="-375"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="duw-dv-75n">
             <objects>
-                <collectionViewController id="rIN-33-2jZ" customClass="ViewController" customModule="ScalingCarouselExample" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="scalingCarouselVC" modalPresentationStyle="overFullScreen" id="rIN-33-2jZ" customClass="ViewController" customModule="ScalingCarouselExample" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="aRd-1P-IrK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -133,10 +185,29 @@
                         <connections>
                             <outlet property="dataSource" destination="rIN-33-2jZ" id="zk5-Xs-z2R"/>
                             <outlet property="delegate" destination="rIN-33-2jZ" id="gtX-xZ-cl8"/>
+                            <outletCollection property="gestureRecognizers" destination="SZ6-bw-3Xu" appends="YES" id="xR3-eO-axy"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <outlet property="blurrView" destination="Tx1-vj-loU" id="JB8-5E-t9R"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eHR-QE-YWw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="SZ6-bw-3Xu">
+                    <rectEdge key="edges" top="YES"/>
+                    <connections>
+                        <action selector="dismissVC:" destination="rIN-33-2jZ" id="Zse-MO-htF"/>
+                    </connections>
+                </screenEdgePanGestureRecognizer>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" id="Tx1-vj-loU">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="iG1-mF-ecK">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <blurEffect style="regular"/>
+                </visualEffectView>
             </objects>
             <point key="canvasLocation" x="347.82608695652175" y="-370.3125"/>
         </scene>
