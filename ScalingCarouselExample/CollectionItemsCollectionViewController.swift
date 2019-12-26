@@ -71,7 +71,9 @@ class CollectionItemsCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if let vc = ViewController.initialize(dataSourceCount: dataSourceCount, scrollToIndex: indexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) else { return }
+        
+        if let vc = ViewController.initialize(dataSourceCount: dataSourceCount, scrollToIndex: indexPath, selectedCellFrame: cell.frame) {
             self.present(vc, animated: true, completion: nil)
         }
         

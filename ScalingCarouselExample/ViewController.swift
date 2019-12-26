@@ -19,6 +19,10 @@ class ViewController: ScalingCarouselCollectionVC, ScalingCarouselProtocol {
     
     @IBOutlet weak var blurrView: UIVisualEffectView!
     
+    let animator = PopAnimator()
+    
+    var cellFrameToStartTransition: CGRect?
+    
     @IBAction func dismissVC(_ sender: UIScreenEdgePanGestureRecognizer) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -63,6 +67,10 @@ class ViewController: ScalingCarouselCollectionVC, ScalingCarouselProtocol {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataSourceCount
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Item selected at: \(indexPath)")
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -88,12 +96,34 @@ extension ViewController  {
     
 }
 
+extension ViewController: UIViewControllerTransitioningDelegate {
+    
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        guard let cellFrame = cellFrameToStartTransition else { return nil }
+        
+        animator.originFrame = cellFrame
+        animator.presenting = true
+        
+        return animator
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        animator.presenting = false
+        
+        return animator
+    }
+}
+
 extension ViewController {
-    class func initialize(dataSourceCount: Int, scrollToIndex index: IndexPath) -> ViewController? {
+    class func initialize(dataSourceCount: Int, scrollToIndex index: IndexPath, selectedCellFrame frame: CGRect) -> ViewController? {
         
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "scalingCarouselVC") as? ViewController
         vc?.dataSourceCount = dataSourceCount
         vc?.toIndex = index
+        vc?.cellFrameToStartTransition = frame
+        vc?.transitioningDelegate = vc
         return vc
         
     }

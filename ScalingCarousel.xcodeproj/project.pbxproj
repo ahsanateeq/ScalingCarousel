@@ -11,6 +11,7 @@
 		599F80D2239A6F44006B6AC8 /* ScalingCarouselCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599F80D0239A6F44006B6AC8 /* ScalingCarouselCollectionVC.swift */; };
 		599F80D3239A6F44006B6AC8 /* ScalingCarouselCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599F80D1239A6F44006B6AC8 /* ScalingCarouselCVCell.swift */; };
 		9A25778423B4811800594218 /* CollectionItemsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A25778323B4811800594218 /* CollectionItemsCollectionViewController.swift */; };
+		9A25778C23B4B37900594218 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A25778B23B4B37900594218 /* PopAnimator.swift */; };
 		9AA8FEB5239F84D800F9776C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA8FEB4239F84D800F9776C /* AppDelegate.swift */; };
 		9AA8FEB7239F84D800F9776C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA8FEB6239F84D800F9776C /* SceneDelegate.swift */; };
 		9AA8FEB9239F84D800F9776C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA8FEB8239F84D800F9776C /* ViewController.swift */; };
@@ -53,6 +54,7 @@
 		599F80D0239A6F44006B6AC8 /* ScalingCarouselCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingCarouselCollectionVC.swift; sourceTree = "<group>"; };
 		599F80D1239A6F44006B6AC8 /* ScalingCarouselCVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingCarouselCVCell.swift; sourceTree = "<group>"; };
 		9A25778323B4811800594218 /* CollectionItemsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionItemsCollectionViewController.swift; sourceTree = "<group>"; };
+		9A25778B23B4B37900594218 /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
 		9AA8FEB2239F84D800F9776C /* ScalingCarouselExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScalingCarouselExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AA8FEB4239F84D800F9776C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AA8FEB6239F84D800F9776C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,9 +123,18 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		9A25778A23B4B34800594218 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				9A25778B23B4B37900594218 /* PopAnimator.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		9AA8FEB3239F84D800F9776C /* ScalingCarouselExample */ = {
 			isa = PBXGroup;
 			children = (
+				9A25778A23B4B34800594218 /* Animation */,
 				9AA8FEB4239F84D800F9776C /* AppDelegate.swift */,
 				9AA8FEB6239F84D800F9776C /* SceneDelegate.swift */,
 				9A25778323B4811800594218 /* CollectionItemsCollectionViewController.swift */,
@@ -271,6 +282,7 @@
 				9AA8FEB9239F84D800F9776C /* ViewController.swift in Sources */,
 				9AA8FEB5239F84D800F9776C /* AppDelegate.swift in Sources */,
 				9AA8FEB7239F84D800F9776C /* SceneDelegate.swift in Sources */,
+				9A25778C23B4B37900594218 /* PopAnimator.swift in Sources */,
 				9AA8FEC7239F858400F9776C /* TestCollectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
