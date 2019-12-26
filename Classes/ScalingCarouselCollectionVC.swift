@@ -185,6 +185,10 @@ extension ScalingCarouselCollectionVC {
             
             animator.startAnimation()
         }
+        
+        cell.dismissViewController = {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }
 
