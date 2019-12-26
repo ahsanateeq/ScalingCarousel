@@ -28,7 +28,7 @@ open class ScalingCarouselCVCell: UICollectionViewCell {
     }
     
     
-    var dismissViewController: (() -> ())?
+    open var dismissViewController: (() -> ())?
     
     
     var animationCompleted: Bool = true
