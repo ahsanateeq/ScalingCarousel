@@ -115,7 +115,6 @@ extension ScalingCarouselCVCell: UIScrollViewDelegate {
         if contentScrollingDown && !isFullScreen && contentReachedTop && isUserDragging {
             let offsetY = newOffset.y
             if offsetY < dismissalGap {
-//                Thread.sleep(forTimeInterval: 0.1)
                 self.dismissViewController?()
             }
         }
