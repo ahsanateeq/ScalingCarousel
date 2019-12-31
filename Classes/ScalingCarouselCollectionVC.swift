@@ -64,6 +64,9 @@ open class ScalingCarouselCollectionVC: UICollectionViewController {
     }
     
     private func setUpScrollToIndex(index: IndexPath, animated: Bool) {
+        if index == self.currentVisibleIndex {
+            self.currentVisibleIndex = index
+        }
         self.collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: animated)
     }
     

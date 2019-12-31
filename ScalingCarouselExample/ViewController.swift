@@ -74,7 +74,7 @@ class ViewController: ScalingCarouselCollectionVC, ScalingCarouselProtocol {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        super.scrollToIndex(toIndex, false)
+        super.scrollToIndex(toIndex, true)
     }
 
 }
