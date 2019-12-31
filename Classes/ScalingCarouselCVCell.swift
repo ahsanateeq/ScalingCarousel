@@ -27,6 +27,7 @@ open class ScalingCarouselCVCell: UICollectionViewCell {
         }
     }
     
+    let dismissalGap: CGFloat = -50
     
     open var dismissViewController: (() -> ())?
     
@@ -112,7 +113,11 @@ extension ScalingCarouselCVCell: UIScrollViewDelegate {
         }
         
         if contentScrollingDown && !isFullScreen && contentReachedTop && isUserDragging {
-            self.dismissViewController?()
+            let offsetY = newOffset.y
+            if offsetY < dismissalGap {
+                Thread.sleep(forTimeInterval: 0.2)
+                self.dismissViewController?()
+            }
         }
         
         if (offSetXNotEqual || !isUserDragging){

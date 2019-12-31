@@ -64,6 +64,14 @@ class ViewController: ScalingCarouselCollectionVC, ScalingCarouselProtocol {
         return dataSourceCount
     }
 
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! TestCollectionCell
+        cell.dismissViewController = {
+            self.dismiss(animated: true, completion: nil)
+        }
+        return cell
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         super.scrollToIndex(toIndex, false)
