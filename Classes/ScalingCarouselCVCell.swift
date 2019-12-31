@@ -111,6 +111,10 @@ extension ScalingCarouselCVCell: UIScrollViewDelegate {
             scrollingUp = false
         }
         
+        if contentScrollingDown && !isFullScreen && contentReachedTop && isUserDragging {
+            self.dismissViewController?()
+        }
+        
         if (offSetXNotEqual || !isUserDragging){
             prevOffset = newOffset
             
