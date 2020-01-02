@@ -74,6 +74,7 @@ open class ScalingCarouselCollectionVC: UICollectionViewController {
         guard let cell = self.collectionView.cellForItem(at: index) as? ScalingCarouselCVCell else {
             return
         }
+        cell.mainScrollView.isScrollEnabled = true
         cell.setScrollContentSize()
     }
     
@@ -193,8 +194,14 @@ extension ScalingCarouselCollectionVC {
 
 
 extension ScalingCarouselCollectionVC {
+    
+    open override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        guard let cell = collectionView.cellForItem(at: currentVisibleIndex) as? ScalingCarouselCVCell else { return }
+        cell.mainScrollView.isScrollEnabled = false
+    }
+    
     override open func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        scrollView.decelerationRate = .fast
+        scrollView.decelerationRate = .normal
         let newOffset = targetContentOffset.pointee
         
         if newOffset.x != prevOffset.x {
@@ -237,6 +244,8 @@ extension ScalingCarouselCollectionVC {
         let index = (newOffset.x + scrollView.contentInset.left) / cellWidth
         let roundedIndex = round(index)
         currentVisibleIndex = IndexPath(item: Int(roundedIndex), section: 0)
+        
+        
     }
 }
 

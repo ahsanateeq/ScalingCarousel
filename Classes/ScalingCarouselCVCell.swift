@@ -60,6 +60,7 @@ open class ScalingCarouselCVCell: UICollectionViewCell {
         }
         
         private func preSetUp() {
+            mainScrollView.isScrollEnabled = false
             isUserDragging = false
             prevOffset = CGPoint(x: 0, y: 0)
             isFullScreen = false
