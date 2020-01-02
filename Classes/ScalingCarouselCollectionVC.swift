@@ -153,11 +153,6 @@ extension ScalingCarouselCollectionVC {
             
             
             if value {
-                
-                guard let cellIndexPath = self.collectionView.indexPath(for: cell), cellIndexPath == self.currentVisibleIndex else {
-                    self.view.isUserInteractionEnabled = true
-                    return
-                }
                 self.hiddenCells = collection.visibleCells.map({ $0 as! ScalingCarouselCVCell }).filter({ $0 != cell })
                 animator.addAnimations {
                     cell.expand(in: collection)
